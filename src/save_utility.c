@@ -154,8 +154,8 @@ void run_save_utility()
 {
     save_debug_log("=== STARTING LISTSAVE UTILITY ===");
 
-    extern void audio_end();
-    audio_end();
+    extern void audio_suspend();
+    audio_suspend();
 
     configure_dialog();
     dialog.mode = PSP_UTILITY_SAVEDATA_LISTSAVE; // Use the slot-based menu mode
@@ -183,8 +183,8 @@ void run_load_utility()
 {
     save_debug_log("=== STARTING LISTLOAD UTILITY ===");
 
-    extern void audio_end();
-    audio_end();
+    extern void audio_suspend();
+    audio_suspend();
 
     configure_dialog();
     dialog.mode = PSP_UTILITY_SAVEDATA_LISTLOAD; // Use the slot-based menu mode

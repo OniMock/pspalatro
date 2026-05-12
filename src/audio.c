@@ -50,6 +50,7 @@ void audio_callback(void* buf, unsigned int length, void *userdata)
         else
         {
             g_debug_info.audio_wait_read++;
+            memset(buf, 0, AUDIO_BUFFER_SIZE);
         }
     }
     else
@@ -67,6 +68,16 @@ void audio_init()
 
     g_debug_info.audio_wait_read = 0;
     g_debug_info.audio_wait_write = 0;
+}
+
+void audio_suspend()
+{
+    pspAudioSetChannelCallback(0, NULL, NULL);
+}
+
+void audio_resume()
+{
+    pspAudioSetChannelCallback(0, audio_callback, NULL);
 }
 
 struct sample_t
